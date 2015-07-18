@@ -1,0 +1,28 @@
+{
+  "name": "es6-fe-boilerplate",
+  "version": "0.1.0",
+  "homepage": "https://github.com/inkless/es6-fe-boilerplate",
+  "authors": [
+    "Guangda Zhang <zhangxiaoyu9350@gmail.com>"
+  ],
+  "description": "Boilerplate using Gulp, Browserify, Less and React while also utilizing best practices.",
+  "keywords": [
+    "gulp",
+    "es6",
+    "browserify",
+    "react",
+    "less",
+    "karma",
+    "jasmine"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "src/vendor",
+    "test"
+  ],
+  "dependencies": {
+    "react": "~0.13.3"
+  }
+}

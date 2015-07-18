@@ -11,11 +11,11 @@ import buffer from 'vinyl-buffer';
 import streamify from 'gulp-streamify';
 import watchify from 'watchify';
 import browserify from 'browserify';
+import debowerify from 'debowerify';
 import babelify from 'babelify';
 import uglify from 'gulp-uglify';
 import handleErrors from '../util/handleErrors';
 import browserSync from 'browser-sync';
-import debowerify from 'debowerify';
 import config from '../config';
 
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
@@ -30,7 +30,10 @@ function fnBundle() {
   }
 
   let transforms = [
-    babelify,
+    // configure babelify
+    babelify.configure({
+      ignore: /src\/vendor\//,
+    }),
     debowerify,
     'brfs',
     'bulkify'
@@ -42,19 +45,19 @@ function fnBundle() {
 
   function bundle() {
     let stream = bundler.bundle();
-    let createSourcemap = config.browserify.sourcemap;
+    let createSourceMap = config.browserify.sourceMap;
 
     gutil.log('Rebundling scripts...');
 
     return stream.on('error', handleErrors)
       .pipe(source(config.browserify.bundleName))
-      .pipe(gulpif(createSourcemap, buffer()))
-      .pipe(gulpif(createSourcemap, sourcemaps.init({
+      .pipe(gulpif(createSourceMap, buffer()))
+      .pipe(gulpif(createSourceMap, sourcemaps.init({
         // load separate files
         loadMaps: true
       })))
-      .pipe(gulpif(config.scripts.uglify, uglify, streamify(uglify(config.uglify))))
-      .pipe(gulpif(createSourcemap, sourcemaps.write('./')))
+      .pipe(gulpif(config.scripts.uglify, streamify(uglify(config.uglify))))
+      .pipe(gulpif(createSourceMap, sourcemaps.write('./')))
       .pipe(gulp.dest(config.scripts.dest))
       .pipe(gulpif(browserSync.active, browserSync.reload({
         stream: true,

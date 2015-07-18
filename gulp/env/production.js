@@ -10,7 +10,7 @@ export default {
   
   'styles': {
     'sass': {
-      'sourceComments': 'none',
+      'sourceComments': false,
       'outputStyle': 'compressed'
     }
   },
@@ -23,10 +23,6 @@ export default {
     'src': 'dist/**/*.{html,xml,json,css,js,js.map}',
     'dest': 'dist/',
     'options': {}
-  },
-  
-  'browserify': {
-    'sourcemap': false
   }
 
 };

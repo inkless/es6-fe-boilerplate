@@ -22,9 +22,9 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/scripts/**/*.js': ['browserify', 'babel', 'coverage'],
-      'src/scripts/**/*.jsx': ['browserify', 'babel', 'coverage'],
-      'test/**/*spec.js': ['browserify', 'babel']
+      'src/scripts/**/*.js': ['browserify', 'coverage'],
+      'src/scripts/**/*.jsx': ['browserify', 'coverage'],
+      'test/**/*spec.js': ['browserify']
     },
 
     // start these browsers
@@ -48,14 +48,13 @@ module.exports = function(config) {
           instrumenter: isparta,
           ignore: ['**/node_modules/**', '**/test/**']
         })
-      ]
+      ],
+      paths: ['./src/scripts']
     },
 
     proxies: {
-      '/': 'http://localhost:9876/'
+      '/web': 'http://localhost:3000'
     },
-
-    urlRoot: '/__karma__/',
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits

@@ -10,7 +10,7 @@ export default {
     'src' : 'src/styles/**/*.scss',
     'dest': 'dist/css',
     'sass': {
-      'sourceComments': 'map',
+      'sourceComments': true,
       'sourceMap': 'sass',
       'outputStyle': 'nested'
     }
@@ -50,12 +50,11 @@ export default {
   'browserify': {
     'entries'   : ['./src/scripts/bootstrap.js'],
     'bundleName': 'main.js',
-    'sourcemap' : true,
+    'sourceMap' : true,
     'config': {
       'debug': true,
-      'cache': {},
-      'packageCache': {},
-      'fullPaths': true
+      'fullPaths': true,
+      'paths': ['./src/scripts']
     }
   },
 

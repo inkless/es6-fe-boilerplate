@@ -3,6 +3,7 @@
  */
 
 import minimist from 'minimist';
+import {merge} from 'lodash';
 import defaultConfig from './env/default';
 import devConfig from './env/development';
 import testConfig from './env/test';
@@ -20,13 +21,13 @@ let config = defaultConfig;
 
 switch (env) {
   case ENV.DEVELOPMENT:
-    Object.assign(config, devConfig);
+    merge(config, devConfig);
     break;
   case ENV.TEST:
-    Object.assign(config, testConfig);
+    merge(config, testConfig);
     break;
   case ENV.PRODUCTION:
-    Object.assign(config, prodConfig);
+    merge(config, prodConfig);
     break;
   default:
     break;
