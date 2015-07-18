@@ -21,7 +21,7 @@ import config from '../config';
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function fnBundle() {
 
-  let bundler = browserify(config.browserify, watchify.args);
+  let bundler = browserify(config.browserify, config.browserify.config);
 
   // if we set config.watch in `task watch`
   if (config.watch) {
@@ -49,7 +49,10 @@ function fnBundle() {
     return stream.on('error', handleErrors)
       .pipe(source(config.browserify.bundleName))
       .pipe(gulpif(createSourcemap, buffer()))
-      .pipe(gulpif(createSourcemap, sourcemaps.init()))
+      .pipe(gulpif(createSourcemap, sourcemaps.init({
+        // load separate files
+        loadMaps: true
+      })))
       .pipe(gulpif(config.scripts.uglify, uglify, streamify(uglify(config.uglify))))
       .pipe(gulpif(createSourcemap, sourcemaps.write('./')))
       .pipe(gulp.dest(config.scripts.dest))

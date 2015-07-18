@@ -3,11 +3,6 @@
  */
 
 import fs from 'fs';
-import requireAll from 'require-all';
+import bulk from 'bulk-require';
 
-requireAll({
-  dirname: __dirname + '/tasks',
-  // Filters out non .js files. Prevents
-  // accidental inclusion of possible hidden files
-  filter: /(\.(js)$)/
-});
+bulk(__dirname + '/tasks', ['*.js']);
