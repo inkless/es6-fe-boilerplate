@@ -8,7 +8,8 @@ import config from '../config';
 
 gulp.task('unit', done => {
   var karma = new Karma({
-    configFile: config.test.karma
+    configFile: config.test.karma,
+    singleRun: true
   }, done);
   karma.start();
 });

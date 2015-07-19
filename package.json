@@ -73,9 +73,9 @@
   },
   "scripts": {
     "pretest": "npm install",
-    "test": "karma start test/karma.conf.js",
-    "preprotractor": "npm run update-webdriver",
-    "protractor": "npm run protractor test/protractor.conf.js"
+    "test": "gulp unit",
+    "preprotractor": "npm install",
+    "protractor": "gulp e2e"
   },
   "license": "MIT"
 }
