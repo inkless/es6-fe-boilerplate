@@ -5,13 +5,13 @@
   "authors": [
     "Guangda Zhang <zhangxiaoyu9350@gmail.com>"
   ],
-  "description": "Boilerplate using Gulp, Browserify, Less and React while also utilizing best practices.",
+  "description": "Boilerplate using Gulp, Browserify, Sass and React while also utilizing best practices.",
   "keywords": [
     "gulp",
     "es6",
     "browserify",
     "react",
-    "less",
+    "sass",
     "karma",
     "jasmine"
   ],

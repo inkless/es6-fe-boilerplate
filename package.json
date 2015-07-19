@@ -2,20 +2,20 @@
   "name": "es6-fe-boilerplate",
   "version": "0.1.0",
   "author": "Guangda Zhang <zhangxiaoyu9350@gmail.com>",
-  "description": "Boilerplate using Gulp, Browserify, Less and React while also utilizing best practices.",
+  "description": "Boilerplate using Gulp, Browserify, Sass and React while also utilizing best practices.",
   "repository": {
     "type": "git",
-    "url": "git@github.com:inkless/fe-boilerplate.git"
+    "url": "git@github.com:inkless/es6-fe-boilerplate.git"
   },
   "keywords": [
     "express",
     "gulp",
     "browserify",
     "react",
-    "less",
+    "sass",
     "karma",
     "jasmine",
-    "protractor",
+    "nightwatch",
     "boilerplate"
   ],
   "engines": {
