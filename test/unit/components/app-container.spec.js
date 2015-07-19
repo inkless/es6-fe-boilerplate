@@ -1,4 +1,4 @@
-import React from 'react/addons';
+import React from 'react/react-with-addons';
 import AppContainer from 'components/app-container.jsx';
 
 let TestUtils = React.addons.TestUtils;

@@ -34,7 +34,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['spec', 'coverage'],
 
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
@@ -42,11 +42,12 @@ module.exports = function(config) {
     browserify: {
       debug: true,
       transform: [
-        'babelify',
+        ['babelify', {ignore: ['**/src/vendor/**']}],
+        'debowerify',
         'bulkify',
         istanbul({
           instrumenter: isparta,
-          ignore: ['**/node_modules/**', '**/test/**']
+          ignore: ['**/node_modules/**', '**/test/**', '**/src/vendor/**']
         })
       ],
       paths: ['./src/scripts']
@@ -54,6 +55,19 @@ module.exports = function(config) {
 
     proxies: {
       '/web': 'http://localhost:3000'
+    },
+
+    coverageReporter: {
+      type: 'text',
+      dir: 'coverage',
+      reporters: [
+        // reporters not supporting the `file` property
+        { type: 'html', subdir: 'report-html' },
+        // reporters supporting the `file` property, use `subdir` to directly
+        // output them in the `dir` directory
+        { type: 'text', subdir: '.', file: 'report.txt' },
+        { type: 'text-summary', subdir: '.', file: 'report-summary.txt' }
+      ]
     },
 
     // Continuous Integration mode

@@ -11,8 +11,6 @@ import buffer from 'vinyl-buffer';
 import streamify from 'gulp-streamify';
 import watchify from 'watchify';
 import browserify from 'browserify';
-import debowerify from 'debowerify';
-import babelify from 'babelify';
 import uglify from 'gulp-uglify';
 import handleErrors from '../util/handleErrors';
 import browserSync from 'browser-sync';
@@ -30,11 +28,8 @@ function fnBundle() {
   }
 
   let transforms = [
-    // configure babelify
-    babelify.configure({
-      ignore: /src\/vendor\//,
-    }),
-    debowerify,
+    ['babelify', {compact: false, ignore: ['**/src/vendor/**']}],
+    'debowerify',
     'brfs',
     'bulkify'
   ];
