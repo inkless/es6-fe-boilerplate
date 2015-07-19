@@ -1,6 +1,10 @@
 Front End Boilerplate
 =====================
 
+[![Build Status](https://travis-ci.org/inkless/es6-fe-boilerplate.svg?branch=master)](http://travis-ci.org/inkless/es6-fe-boilderplate)
+[![Dependency Status](https://david-dm.org/inkless/es6-fe-boilerplate.svg)](https://david-dm.org/inkless/es6-fe-boilerplate)
+[![devDependency Status](https://david-dm.org/inkless/es6-fe-boilerplate/dev-status.svg)](https://david-dm.org/inkless/es6-fe-boilerplate#dev-badge-embed=&info=devDependencies&view=table)
+
 A boilerplate using Gulp, Browserify, Less and React Gulp, etc.
 
 ---
