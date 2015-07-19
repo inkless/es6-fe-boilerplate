@@ -6,6 +6,6 @@ export default class App {
         this.node = node;
     }
     run() {
-        React.render(React.createElement(AppContainer, null), this.node);
+        React.render(React.createElement(AppContainer, {text: 'Hello World'}), this.node);
     }
 }

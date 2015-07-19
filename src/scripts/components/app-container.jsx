@@ -6,7 +6,7 @@ export default class AppContainer extends React.Component {
         /* jscs: disable */
         return (
             <div>
-                <h1>Hello world</h1>
+                <h1>{this.props.text}</h1>
             </div>
         );
         /* jshint ignore:end */

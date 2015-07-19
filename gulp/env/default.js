@@ -66,7 +66,7 @@ export default {
 
   'test': {
     'karma': __dirname + '/../../test/karma.conf.js',
-    'protractor': 'test/protractor.conf.js'
+    'nightwatch': __dirname + '/../../test/nightwatch.json'
   }
 
 };

@@ -6,6 +6,6 @@
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
 
-gulp.task('test', ['build'], () => {
-  runSequence('unit', 'e2e');
+gulp.task('test', () => {
+  runSequence('build', 'unit', 'e2e');
 });

@@ -7,12 +7,12 @@ describe('AppContainer', () => {
     let component;
 
     beforeEach(() => {
-        component = TestUtils.renderIntoDocument(React.createElement(AppContainer));
+        component = TestUtils.renderIntoDocument(React.createElement(AppContainer, {text: 'test text'}));
     });
 
     it('should display correct value', () => {
         let HelloWorldNode = TestUtils.findRenderedDOMComponentWithTag(component, 'h1');
 
-        expect(HelloWorldNode.getDOMNode().textContent).toBe('Hello world');
+        expect(HelloWorldNode.getDOMNode().textContent).toBe('test text');
     });
 });

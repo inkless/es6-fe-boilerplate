@@ -59,7 +59,7 @@ module.exports = function(config) {
 
     coverageReporter: {
       type: 'text',
-      dir: 'coverage',
+      dir: 'reports/coverage',
       reporters: [
         // reporters not supporting the `file` property
         { type: 'html', subdir: 'report-html' },
