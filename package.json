@@ -72,12 +72,15 @@
     "watchify": "^3.2.3"
   },
   "scripts": {
-    "preunit": "npm run pretest",
+    "preunit": "npm intall",
     "unit": "gulp unit",
-    "pretest": "npm install && bower install",
+    "pretest": "npm install",
     "test": "gulp test",
-    "prenightwatch": "npm run pretest",
-    "nightwatch": "gulp e2e"
+    "pree2e": "npm install",
+    "e2e": "gulp e2e",
+    "postinstall" : "bower install",
+    "prestart": "npm install",
+    "start": "gulp server"
   },
   "license": "MIT"
 }
