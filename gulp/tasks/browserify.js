@@ -34,7 +34,7 @@ function fnBundle() {
     'bulkify'
   ];
 
-  transforms.forEach(function(transform) {
+  transforms.forEach(transform => {
     bundler.transform(transform);
   });
 

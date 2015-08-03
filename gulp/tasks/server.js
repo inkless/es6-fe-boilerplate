@@ -15,28 +15,19 @@ import config from '../config';
 
 gulp.task('server', ['build'], () => {
 
-  let server = express();
+  let app = express();
 
   // log all requests to the console
-  server.use(morgan('dev'));
-  server.use(express.static(config.dist.root));
+  app.use(morgan('dev'));
+  app.use(express.static(config.dist.root));
 
   // Serve index.html, front end will handle the routing
-  server.all('/*', (req, res) => {
+  app.all('/*', (req, res) => {
       res.sendFile('index.html', { root: config.dist.root });
   });
 
-  // Start webserver if not already running
-  let s = http.createServer(server);
-  s.on('error', err => {
-    if(err.code === 'EADDRINUSE') {
-      gutil.log('Development server is already started at port ' + config.serverport);
-    }
-    else {
-      throw err;
-    }
+  app.listen(config.serverport, () => {
+    gutil.log('Development server is already started at port %s', config.serverport);
   });
-
-  s.listen(config.serverport);
 
 });
